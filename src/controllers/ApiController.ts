@@ -24,4 +24,13 @@ export default class ApiController {
 
 		return response.data.session;
 	}
+
+	// eslint-disable-next-line class-methods-use-this
+	async getAccountsInfo(session: string): Promise<any> {
+		const response = await api.get(
+			`/api/get-my-accounts.json?session=${session}`,
+		);
+
+		return response.data.accounts;
+	}
 }

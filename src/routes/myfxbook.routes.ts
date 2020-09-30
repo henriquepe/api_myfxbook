@@ -22,4 +22,15 @@ myfxRouter.get('/getorders', async (request: Request, response: Response) => {
 	return response.json({ orders: dataResponse });
 });
 
+myfxRouter.get(
+	'/getaccountsinfo',
+	async (request: Request, response: Response) => {
+		const { session } = request.body;
+
+		const dataResponse = await apiController.getAccountsInfo(session);
+
+		return response.json({ AccountsInfo: dataResponse });
+	},
+);
+
 export default myfxRouter;
